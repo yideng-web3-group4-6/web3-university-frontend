@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    </style>
+  </head>
+  <body>
+    <div id="app">  
+      loading....
+    </div>
+    <!-- Service Worker 注册脚本 -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('Service Worker 注册成功', reg))
+            .catch(err => console.log('Service Worker 注册失败', err));
+        });
+      }
+  </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+# 依赖目录
+node_modules/
+npm-debug.log*
+
+# 构建输出
+dist/
+
+# 环境变量
+.env
+.env.local
+.env.development
+.env.production
+
+# IDE 和编辑器文件
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 测试和调试
+cypress/
+
+# 文档和数据
+backstop_data/
+docs/
+
+# 其他忽略文件
+.npmrc
