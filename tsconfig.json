@@ -2,7 +2,6 @@
   "compilerOptions": {
     // 指定 ECMAScript 目标版本为 ES5
     "target": "ES5",
-
     // 指定 TypeScript 编译时包含的库，多个库可以一起使用
     // "dom" - 用于浏览器相关的 API
     // "ESNext" - 最新的 ECMAScript 特性
