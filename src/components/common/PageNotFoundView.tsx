@@ -10,8 +10,8 @@ const PageNotFoundView = () => {
           <h1 className='text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600'>
             404
           </h1>
-          <h2 className='mt-4 text-3xl font-bold text-gray-900'>页面未找到</h2>
-          <p className='mt-2 text-base text-gray-600'>很抱歉，我们无法找到您要访问的页面。</p>
+          <h2 className='mt-4 text-3xl font-bold'>页面未找到</h2>
+          <p className='mt-2 text-base'>很抱歉，我们无法找到您要访问的页面。</p>
         </div>
 
         <div className='mt-8 space-y-4'>

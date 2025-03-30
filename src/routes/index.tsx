@@ -2,6 +2,7 @@ import PageNotFoundView from '@/components/common/PageNotFoundView';
 import MainLayout from '@/layouts/MainLayout';
 import Home from '@/pages/Home';
 import Dapp from '@/pages/Dapp';
+import Course from '@/pages/Course';
 import Loading from '@/components/common/Loading';
 import { RouteObject } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
@@ -20,6 +21,7 @@ const mainRoutes = {
   element: <Layout />,
   children: [
     { path: '/', element: <Home /> },
+    { path: '/course', element: <Course /> },
     { path: '/dapp', element: <Dapp /> },
     { path: '*', element: <PageNotFoundView /> },
     { path: '/404', element: <PageNotFoundView /> },

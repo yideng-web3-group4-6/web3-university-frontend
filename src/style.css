@@ -1,14 +1,106 @@
 @import 'tailwindcss';
 
-html {
-  transition: font-size 0.3s ease;
-}
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --neon-blue: #00f3ff;
+  --dark-bg: #0a0b0f;
+  --tw-text-opacity: 1;
+  --tw-bg-opacity: 1;
 }
 
-h1 {
-  color: yellowgreen;
+body {
+  background-color: var(--dark-bg);
+  color: #ffffff;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(0, 13, 42, 0.95) 0%, rgba(25, 0, 66, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card {
+  @apply transform transition-all duration-500;
+  background: rgba(13, 14, 20, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 243, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.1), 0 0 40px rgba(0, 243, 255, 0.05);
+}
+
+.nav-blur {
+  backdrop-filter: blur(10px);
+  background: rgba(10, 11, 15, 0.8);
+  border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+}
+
+.float-animation {
+  animation: cyberFloat 3s ease-in-out infinite;
+}
+
+.text-cyber-blue {
+  color: rgb(0 243 255 / var(--tw-text-opacity));
+}
+
+.bg-dark-card {
+  background-color: rgb(13 14 20 / var(--tw-bg-opacity));
+}
+
+.bg-clip-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientAnimation 5s ease infinite;
+  font-size: 48px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-clip-text {
+  background-size: 200% 200%;
+}
+
+@keyframes cyberFloat {
+  0% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 10px var(--neon-blue));
+  }
+  100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+  }
+}
+
+input[type='number'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

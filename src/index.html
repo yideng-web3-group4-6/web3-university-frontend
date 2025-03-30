@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>前端Web3大学</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+      /* 自定义背景渐变和粒子效果容器 */
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      .bg-gradient-web3 {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #a855f7 100%);
+      }
+      /* 卡片悬浮效果 */
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <!-- 粒子背景 -->
+    <div id="particles-js"></div>
+
+    <!-- 导航栏 -->
+    <nav class="bg-gray-800 bg-opacity-80 backdrop-blur-md py-4 px-6 fixed w-full z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold text-blue-400">前端Web3大学</div>
+        <div class="space-x-6">
+          <a href="#home" class="hover:text-blue-400 transition">首页</a>
+          <a href="#courses" class="hover:text-blue-400 transition">课程</a>
+          <a href="#knowledge" class="hover:text-blue-400 transition">知识库</a>
+          <a href="#rewards" class="hover:text-blue-400 transition">奖励</a>
+          <a href="#contact" class="hover:text-blue-400 transition">联系我们</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 核心功能展示区 -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-web3">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse">欢迎加入前端Web3大学</h1>
+        <p class="text-lg md:text-2xl mb-8">学习前端开发与Web3技术，解锁去中心化世界的无限可能！</p>
+        <a
+          href="#courses"
+          class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full text-lg transition"
+          >立即开始学习</a
+        >
+      </div>
+    </section>
+
+    <!-- 课程卡片 -->
+    <section id="courses" class="py-16">
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12">精选课程</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 课程卡片 1 -->
+          <div class="bg-gray-800 p-6 rounded-lg card-hover transition-all">
+            <h3 class="text-2xl font-semibold mb-4">初学者前端开发</h3>
+            <p class="text-gray-400 mb-4">从HTML到React，掌握前端基础，适合零基础学习者。</p>
+            <a href="#" class="text-blue-400 hover:underline">了解更多</a>
+          </div>
+          <!-- 课程卡片 2 -->
+          <div class="bg-gray-800 p-6 rounded-lg card-hover transition-all">
+            <h3 class="text-2xl font-semibold mb-4">Web3智能合约开发</h3>
+            <p class="text-gray-400 mb-4">学习Solidity，开发ERC20和ERC721智能合约。</p>
+            <a href="#" class="text-blue-400 hover:underline">了解更多</a>
+          </div>
+          <!-- 课程卡片 3 -->
+          <div class="bg-gray-800 p-6 rounded-lg card-hover transition-all">
+            <h3 class="text-2xl font-semibold mb-4">去中心化应用（DApp）开发</h3>
+            <p class="text-gray-400 mb-4">结合Next.js和以太坊，构建你的第一个DApp。</p>
+            <a href="#" class="text-blue-400 hover:underline">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 代币奖励介绍 -->
+    <section id="rewards" class="py-16 bg-gradient-web3">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-12">学习奖励：Yideng币 & NFT</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-gray-800 bg-opacity-80 p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold mb-4">赚取Yideng币</h3>
+            <p class="text-gray-400">完成课程和任务，赚取Yideng币，用于解锁高级内容或交易。</p>
+          </div>
+          <div class="bg-gray-800 bg-opacity-80 p-6 rounded-lg">
+            <h3 class="text-2xl font-semibold mb-4">收集NFT成就</h3>
+            <p class="text-gray-400">通过学习里程碑获得独一无二的NFT，展示你的成就。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact" class="bg-gray-800 py-8">
+      <div class="container mx-auto text-center">
+        <p class="text-gray-400 mb-4">© 2025 前端Web3大学. 保留所有权利.</p>
+        <div class="space-x-4">
+          <a href="#" class="text-blue-400 hover:underline">隐私政策</a>
+          <a href="#" class="text-blue-400 hover:underline">使用条款</a>
+          <a href="#" class="text-blue-400 hover:underline">联系我们</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 初始化粒子效果 -->
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: '#ffffff',
+          },
+          shape: {
+            type: 'circle',
+            stroke: {
+              width: 0,
+              color: '#000000',
+            },
+          },
+          opacity: {
+            value: 0.5,
+            random: true,
+          },
+          size: {
+            value: 3,
+            random: true,
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+          },
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: {
+              enable: true,
+              mode: 'repulse',
+            },
+            onclick: {
+              enable: true,
+              mode: 'push',
+            },
+            resize: true,
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
+  </body>
+</html>

@@ -34,3 +34,5 @@ export function getName(connector: Connector) {
   if (connector instanceof MetaMask) return 'MetaMask';
   return 'Unknown';
 }
+
+export type CartItem = { title: string; price: string };

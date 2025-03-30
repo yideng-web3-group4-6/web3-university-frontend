@@ -4,12 +4,12 @@ import Header from '@components/common/Header';
 
 const MainLayout = () => {
   return (
-    <>
+    <div className='min-h-screen bg-mesh'>
       <Header />
-      <main className='mx-auto px-4'>
+      <main>
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 // MainLayout.whyDidYouRender = true;
