@@ -7,15 +7,15 @@ import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
 const config = createConfig(
   getDefaultConfig({
     // 支持的区块链
-    chains: [mainnet, sepolia],
+    chains: [sepolia, mainnet],
     transports: {
-      // 添加ETH主网链的 RPC URL
-      [mainnet.id]: http(
-        `https://eth-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
-      ),
       // 添加 sepolia 的 RPC 配置
       [sepolia.id]: http(
         `https://eth-sepolia.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
+      ),
+      // 添加ETH主网链的 RPC URL
+      [mainnet.id]: http(
+        `https://eth-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
       ),
     },
 
