@@ -27,7 +27,7 @@ module.exports = {
     assetModuleFilename: 'images/[name].[ext]',
   },
   // 生成 source-map 文件
-  // devtool: "cheap-module-source-map",
+  devtool: 'cheap-module-source-map',
   // 插件
   plugins: [
     // 1. HtmlWebpackPlugin: 生成html文件

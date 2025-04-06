@@ -21,9 +21,17 @@ module.exports = {
         },
       },
       boxShadow: {
-        neon: '0 0 20px rgba(0, 243, 255, 0.3)',
-        'neon-strong': '0 0 30px rgba(0, 243, 255, 0.5)',
+        neon: '0 0 20px rgba(0, 243, 255, 0.5), 0 0 40px rgba(0, 243, 255, 0.3)',
+        'neon-strong': '0 0 30px rgba(0, 243, 255, 0.7), 0 0 60px rgba(0, 243, 255, 0.4)',
       },
+    },
+  },
+  variants: {
+    extend: {
+      boxShadow: ['hover'],
+      color: ['hover'],
+      backgroundColor: ['hover'],
+      gradientColorStops: ['hover'],
     },
   },
   plugins: [],

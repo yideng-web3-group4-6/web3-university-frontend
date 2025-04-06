@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BigNumber } from '@ethersproject/bignumber';
-import { CoinType } from '@utils/courseData';
+import { CoinType } from '@/utils/courseType';
+import { translationValue } from '@locales/i18n';
 
 interface ExchangeSectionProps {
   exchangeRates: Record<CoinType, BigNumber>;
@@ -25,13 +26,19 @@ const ExchangeSection: React.FC<ExchangeSectionProps> = ({ exchangeRates }) => {
   const handleExchange = () => {
     try {
       if (!ethAmount || parseFloat(ethAmount) <= 0) {
-        alert('请输入有效的数量');
+        alert(translationValue('enterValidAmount'));
         return;
       }
-      alert(`成功兑换！您用 ${ethAmount} ${selectedCoin} 兑换了 ${yidengAmount} $YD`);
+      // 手动构建消息，不再使用参数化的翻译
+      const successMessage = `${translationValue(
+        'exchangeSuccessPrefix',
+      )} ${ethAmount} ${selectedCoin} ${translationValue(
+        'exchangeSuccessSuffix',
+      )} ${yidengAmount} $YD`;
+      alert(successMessage);
       setEthAmount('');
     } catch (error) {
-      alert('兑换失败，请检查输入！');
+      alert(translationValue('exchangeFailed'));
       console.error('Error during exchange:', error);
     }
   };
@@ -41,11 +48,11 @@ const ExchangeSection: React.FC<ExchangeSectionProps> = ({ exchangeRates }) => {
       <div className='max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8'>
         <div className='text-center'>
           <h1 className='text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-cyber-blue to-cyber-purple'>
-            加密货币兑换 $YD
+            {translationValue('cryptoExchange')}
           </h1>
-          <div className='mt-6 max-w-2xl mx-auto'>
+          <div className='mt-6 mx-auto'>
             <p className='text-xl mb-6'>
-              输入数量，实时兑换 $YD，当前汇率：1 {selectedCoin} ={' '}
+              {translationValue('exchangeRateInfoPrefix')} {selectedCoin} ={' '}
               {exchangeRates[selectedCoin].toString()} $YD
             </p>
             <div className='flex flex-col items-center gap-4'>
@@ -54,13 +61,15 @@ const ExchangeSection: React.FC<ExchangeSectionProps> = ({ exchangeRates }) => {
                   type='number'
                   value={ethAmount}
                   onChange={e => setEthAmount(e.target.value)}
-                  placeholder={`输入 ${selectedCoin} 数量`}
+                  placeholder={`${translationValue(
+                    'enterAmountPrefix',
+                  )} ${selectedCoin} ${translationValue('enterAmountSuffix')}`}
                   className='flex-1 bg-dark-card text-white px-4 py-3 rounded-lg border border-cyber-blue/30 focus:outline-none focus:ring-2 focus:ring-cyber-blue/50 transition-all duration-300'
                 />
                 <select
                   value={selectedCoin}
                   onChange={e => setSelectedCoin(e.target.value as CoinType)}
-                  className='bg-dark-card text-white px-4 py-3 rounded-lg border border-cyber-blue/30 focus:outline-none focus:ring-2 focus:ring-cyber-blue/50 transition-all duration-300'
+                  className='bg-dark-card cursor-pointer text-white px-4 py-3 rounded-lg border border-cyber-blue/30 focus:outline-none focus:ring-2 focus:ring-cyber-blue/50 transition-all duration-300'
                 >
                   <option value='ETH'>ETH</option>
                   <option value='BTC'>BTC</option>
@@ -69,13 +78,14 @@ const ExchangeSection: React.FC<ExchangeSectionProps> = ({ exchangeRates }) => {
                 </select>
               </div>
               <p className='text-lg'>
-                预计获得：<span className='text-cyber-purple font-bold'>{yidengAmount}</span> $YD
+                {translationValue('estimatedAmount')}
+                <span className='text-cyber-purple font-bold'>{yidengAmount}</span> $YD
               </p>
               <button
                 onClick={handleExchange}
-                className='bg-transparent border-2 border-cyber-blue text-cyber-blue px-6 py-3 rounded-lg font-medium hover:bg-gradient-to-r from-cyber-blue/20 to-cyber-purple/20 hover:text-white hover:border-cyber-purple hover:shadow-neon transition-all duration-300'
+                className='bg-transparent cursor-pointer border-2 border-cyber-blue text-cyber-blue px-6 py-3 rounded-lg font-medium hover:bg-gradient-to-r from-cyber-blue/20 to-cyber-purple/20 hover:text-white hover:border-cyber-purple hover:shadow-neon transition-all duration-300'
               >
-                立即兑换
+                {translationValue('exchangeNow')}
               </button>
             </div>
           </div>

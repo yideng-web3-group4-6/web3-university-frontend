@@ -133,6 +133,7 @@ const webpackBaseConfig = {
       '@connections': resolve('src/connections'),
       '@abis': resolve('src/abis'),
       '@types': resolve('src/types'),
+      '@locales': resolve('locales/'),
     },
     // 2. extensions: 配置扩展名，可以省略文件扩展名
     extensions: ['.js', '.ts', '.tsx', '.jsx', '.css'],

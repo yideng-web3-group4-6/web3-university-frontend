@@ -1,6 +1,7 @@
 import { ConnectKitButton } from 'connectkit';
 import { Wallet, CheckCircle } from 'lucide-react';
 import { useWalletAuth } from '@hooks/useWalletAuth';
+import { translationValue } from '@locales/i18n';
 
 export const WalletConnectButton = () => {
   const { isAuthenticated, isSigningMessage } = useWalletAuth();
@@ -11,16 +12,16 @@ export const WalletConnectButton = () => {
         const buttonText = isAuthenticated
           ? ensName || truncatedAddress
           : isSigningMessage
-          ? '签名中...'
+          ? translationValue('signing')
           : isConnected
-          ? '请签名验证'
-          : '连接钱包';
+          ? translationValue('pleaseSign')
+          : translationValue('connectWallet');
 
         return (
           <button
             onClick={show}
             disabled={isSigningMessage}
-            className='bg-dark-card text-cyber-blue px-6 py-2 rounded-lg text-sm font-medium flex items-center hover:shadow-neon transition-all duration-300 border border-cyber-blue/30'
+            className='bg-dark-card cursor-pointer text-cyber-blue px-6 py-2 rounded-lg text-sm font-medium flex items-center hover:shadow-neon transition-all duration-300 border border-cyber-blue/30'
           >
             <Wallet className='h-4 w-4 mr-2' />
             {isAuthenticated ? (

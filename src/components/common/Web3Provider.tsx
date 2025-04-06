@@ -1,14 +1,16 @@
 import { ReactNode } from 'react';
 import { WagmiProvider, createConfig, http } from 'wagmi';
-import { mainnet, sepolia } from 'wagmi/chains'; // 导入 sepolia 测试网
+import { localhost, mainnet, sepolia } from 'wagmi/chains'; // 导入 sepolia 测试网
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ConnectKitProvider, getDefaultConfig } from 'connectkit';
 
 const config = createConfig(
   getDefaultConfig({
     // 支持的区块链
-    chains: [sepolia, mainnet],
+    chains: [localhost, sepolia, mainnet],
     transports: {
+      // 本地链接
+      [localhost.id]: http(process.env.LOCALHOST_URL || 'http://localhost:7545'),
       // 添加 sepolia 的 RPC 配置
       [sepolia.id]: http(
         `https://eth-sepolia.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
@@ -40,7 +42,13 @@ export const Web3Provider = ({ children }: { children: ReactNode }) => {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <ConnectKitProvider theme='auto' mode='dark'>
+        <ConnectKitProvider
+          theme='auto'
+          mode='dark'
+          options={{
+            enforceSupportedChains: false,
+          }}
+        >
           {children}
         </ConnectKitProvider>
       </QueryClientProvider>

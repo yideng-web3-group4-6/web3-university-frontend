@@ -1,3 +1,4 @@
+import { translationValue } from '@locales/i18n';
 import React from 'react';
 
 interface LoadingProps {
@@ -10,7 +11,7 @@ interface LoadingProps {
 const Loading: React.FC<LoadingProps> = ({
   size = 'medium',
   color = '#3B82F6',
-  text = '加载中...',
+  text = translationValue('loading'),
   fullScreen = false,
 }) => {
   // 根据size确定spinner尺寸

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Blocks, Users, Database, BookCheck, FileCode2 } from 'lucide-react';
+import { translationValue } from '@locales/i18n';
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -18,30 +19,30 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) =
 );
 
 const features = [
-  // {
-  //   icon: <FileCode2 />,
-  //   title: '智能合约',
-  //   description: '以太坊智能合约开发和最佳实践',
-  // },
-  // {
-  //   icon: <Users />,
-  //   title: '用户管理',
-  //   description: '完整的用户系统和个性化学习体验',
-  // },
+  {
+    icon: <FileCode2 />,
+    title: 'Smart Contracts',
+    description: 'Ethereum smart contract development and best practices',
+  },
+  {
+    icon: <Users />,
+    title: 'User Management',
+    description: 'Complete user system and personalized learning experience',
+  },
   {
     icon: <BookCheck />,
-    title: '课程列表',
-    description: '系统化的前端和Web3课程设计',
+    title: 'Course List',
+    description: 'Systematic front-end and Web3 course design',
   },
   {
     icon: <Database />,
-    title: '知识库',
-    description: 'comprehensive Web3开发资源和文档',
+    title: 'Knowledge Base',
+    description: 'Comprehensive Web3 development resources and documentation',
   },
   {
     icon: <Blocks />,
-    title: '挖矿',
-    description: '通过学习和贡献获得奖励',
+    title: 'Mining',
+    description: 'Earn rewards through learning and contribution',
   },
 ];
 
@@ -52,10 +53,10 @@ const Home = () => {
         <div className='max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8'>
           <div className='text-center'>
             <h1 className='text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-cyber-blue to-cyber-purple'>
-              前端 Web3 大学
+              {translationValue('web3University')}
             </h1>
             <p className='mt-6 max-w-2xl mx-auto text-xl'>
-              探索前端开发与Web3技术的完美结合，开启您的区块链开发之旅
+              {translationValue('web3UniversityDesc')}
             </p>
           </div>
         </div>

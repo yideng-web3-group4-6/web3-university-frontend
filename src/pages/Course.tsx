@@ -4,7 +4,7 @@ import ExchangeSection from '@components/course/ExchangeSection';
 import CourseList from '@components/course/CourseList';
 import CartSidebar from '@components/common/sidebar/CartSidebar';
 import RightSidebar from '@components/common/sidebar/RightSidebar';
-import { CoinType } from '@utils/courseData';
+import { CoinType } from '@/utils/courseType';
 import { CartItem } from '@utils/index';
 
 const Course: React.FC = () => {
@@ -19,7 +19,17 @@ const Course: React.FC = () => {
   };
 
   const handleAddToCart = (course: CartItem) => {
-    setCartItems(prev => [...prev, course]);
+    setCartItems(prev => {
+      const existingItemIndex = prev.findIndex(item => item.id === course.id);
+
+      if (existingItemIndex !== -1) {
+        const updatedItems = [...prev];
+        updatedItems[existingItemIndex] = course;
+        return updatedItems;
+      }
+
+      return [...prev, course];
+    });
   };
 
   return (
@@ -27,7 +37,12 @@ const Course: React.FC = () => {
       <ExchangeSection exchangeRates={exchangeRates} />
       <CourseList onAddToCart={handleAddToCart} />
       <RightSidebar cartItems={cartItems} setIsCartOpen={setIsCartOpen} />
-      <CartSidebar cartItems={cartItems} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+      <CartSidebar
+        cartItems={cartItems}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
+        setCartItems={setCartItems}
+      />
     </>
   );
 };

@@ -1,5 +1,8 @@
 import { MetaMask } from '@web3-react/metamask';
 import type { Connector } from '@web3-react/types';
+import { BigNumber } from '@ethersproject/bignumber';
+
+const RMB_TO_YIDENG_RATE = 10; // 假设 1 RMB = 10 $YD
 
 /**
  * 格式化钱包地址，默认显示前6位和后4位
@@ -35,4 +38,8 @@ export function getName(connector: Connector) {
   return 'Unknown';
 }
 
-export type CartItem = { title: string; price: string };
+export type CartItem = { id: string; title: string; price: number; image?: string };
+
+export function transitionBigNumber(num: number) {
+  return BigNumber.from(num).mul(RMB_TO_YIDENG_RATE).toString();
+}
